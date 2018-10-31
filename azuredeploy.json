@@ -31,7 +31,7 @@
         },
         "headNodeSize": {
             "type": "string",
-            "defaultValue": "Standard_H8",
+            "defaultValue": "Standard_D4_v2",
             "allowedValues": [
                 "Standard_A2",
                 "Standard_A4",
@@ -84,7 +84,7 @@
                 "Standard_L32"
             ],
             "metadata": {
-                "description": "Size of the head node."
+                "description": "Size of the head node. "
             }
         },
         "workerNodeSize": {
