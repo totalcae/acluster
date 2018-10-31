@@ -31,7 +31,7 @@
         },
         "headNodeSize": {
             "type": "string",
-            "defaultValue": "Standard_D4_v2",
+            "defaultValue": "Standard_DS3_v2",
             "allowedValues": [
                 "Standard_A2",
                 "Standard_A4",
