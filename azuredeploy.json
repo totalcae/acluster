@@ -89,7 +89,7 @@
         },
         "workerNodeSize": {
             "type": "string",
-            "defaultValue": "Standard_H16",
+            "defaultValue": "Standard_H16r",
             "allowedValues": [
                 "Standard_A2",
                 "Standard_A3",
@@ -196,7 +196,7 @@
         },
         "storageAccountType": {
             "type": "string",
-            "defaultValue": "Standard_LRS",
+            "defaultValue": "Premium_LRS",
             "allowedValues": [
                 "Standard_LRS",
                 "Premium_LRS"
