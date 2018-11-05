@@ -27,9 +27,9 @@ printenv > /tmp/ENVIRONMENT
 
 mkdir -p /srv/ 
 cd /srv
-/bin/wget https://totalcaeapplications.blob.core.windows.net/applications/ansible.tar.gpg
-echo ${LICENSE_KEY} |  gpg --batch --output ansible.tar --passphrase-fd O  --decrypt ansible.tar.gpg
-tar xfv ansible.tar
+/bin/wget https://totalcaeapplications.blob.core.windows.net/applications/totalcaeansible.tar.gpg
+echo ${LICENSE_KEY} |  gpg --batch --output totalcaeansible.tar --passphrase-fd O  --decrypt totalcaeansible.tar.gpg
+tar xfv totalcaeansible.tar
 cd totalcaeansible/azure
 yum -y install ansible
 ./make-head.sh > /var/log/totalcaedeploy.log 2>&1
