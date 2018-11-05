@@ -220,7 +220,6 @@
         "workerVMName": "worker",
         "armApiVersion": "2015-06-15",
         "computeApiVersion": "2016-04-30-preview",
-        "avSetName": "avSet",
         "masterDiskCount": 4,
         "workerDiskCount": 4,
         "nicName": "nic",
@@ -248,17 +247,6 @@
         "installationCLI": "[concat('bash azuredeploy.sh ', variables('masterVMName'), ' ', variables('workerVMName'), ' ', parameters('workerNodeCount'), ' ',  variables('imageOffer'))]"
     },
     "resources": [
-        {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('avSetName')]",
-            "apiVersion": "[variables('computeApiVersion')]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "platformFaultDomainCount": "2",
-                "platformUpdateDomainCount": "2",
-                "managed": "true"
-            }
-        },
         {
             "apiVersion": "[variables('armApiVersion')]",
             "type": "Microsoft.Network/virtualNetworks",
@@ -385,16 +373,13 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]",
-                "[concat('Microsoft.Compute/availabilitySets/', variables('avSetName'))]",
                 "Microsoft.Compute/disks/masterdatadisk0",
                 "Microsoft.Compute/disks/masterdatadisk1",
                 "Microsoft.Compute/disks/masterdatadisk2",
                 "Microsoft.Compute/disks/masterdatadisk3"
             ],
             "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('avSetName'))]"
-                },
+               
                 "hardwareProfile": {
                     "vmSize": "[parameters('headNodeSize')]"
                 },
@@ -532,7 +517,6 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), 'worker', copyindex())]",
-                "[concat('Microsoft.Compute/availabilitySets/', variables('avSetName'))]",
                 "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 0))]",
                 "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 1))]",
                 "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 2))]",
@@ -543,9 +527,6 @@
                 "count": "[parameters('workerNodeCount')]"
             },
             "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('avSetName'))]"
-                },
                 "hardwareProfile": {
                     "vmSize": "[parameters('workerNodeSize')]"
                 },
