@@ -285,11 +285,11 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "SSH",
+                        "name": "SSHAndPortal",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRange": "22",
+                            "destinationPortRange": "22,443",
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
