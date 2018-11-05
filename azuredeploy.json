@@ -221,7 +221,7 @@
 				"fluent",
 				"openfoam",
 				"ls-dyna",
-                "optistruct",
+                                "optistruct",
 				"comsol"
 			],
 			"type": "String",
@@ -272,7 +272,7 @@
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('networkSettings').virtualNetworkName)]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('networkSettings').subnet.dse.name)]",
         "templateBaseUrl": "https://raw.githubusercontent.com/totalcae/acluster/master/",
-        "installationCLI": "[concat('bash azuredeploy.sh ', variables('masterVMName'), ' ', variables('workerVMName'), ' ', parameters('workerNodeCount'), ' ',  variables('imageOffer'))]"
+        "installationCLI": "[concat('bash azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24' )]"
     },
     "resources": [
         {
