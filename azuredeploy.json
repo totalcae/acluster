@@ -23,7 +23,7 @@
                 "OpenLogic:CentOS-HPC:7.5"
             ],
             "metadata": {
-                "description": "The OS image offer to use, eithe HPC with Intel MPI or the vanilla CentOS version."
+                "description": "The OS image to use that has bundled Intel MPI and drivers."
             }
         },
         "headNodeSize": {
@@ -193,7 +193,7 @@
         },
         "storageAccountType": {
             "type": "string",
-            "defaultValue": "Premium_LRS",
+            "defaultValue": "Standard_LRS",
             "allowedValues": [
                 "Standard_LRS",
                 "Premium_LRS"
@@ -216,8 +216,8 @@
         "OSDiskName": "osdisk",
         "publicIPAddressType": "Dynamic",
         "publicIPAddressName": "publicips",
-        "masterVMName": "master",
-        "workerVMName": "worker",
+        "masterVMName": "head",
+        "workerVMName": "n",
         "armApiVersion": "2015-06-15",
         "computeApiVersion": "2016-04-30-preview",
         "masterDiskCount": 4,
@@ -238,12 +238,12 @@
                     "base": "10.0.0.",
                     "start": 5
                 },
-                "master": "10.0.0.4"
+                "head": "10.0.0.4"
             }
         },
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('networkSettings').virtualNetworkName)]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('networkSettings').subnet.dse.name)]",
-        "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-hpc/master/Templates/hpc-cluster/",
+        "templateBaseUrl": "https://raw.githubusercontent.com/totalcae/acluster/master/",
         "installationCLI": "[concat('bash azuredeploy.sh ', variables('masterVMName'), ' ', variables('workerVMName'), ' ', parameters('workerNodeCount'), ' ',  variables('imageOffer'))]"
     },
     "resources": [
