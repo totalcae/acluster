@@ -201,8 +201,7 @@
             "metadata": {
                 "description": "Type of storage account to create for disks."
             }
-        }
-         
+        },
         "TotalCAEKey": {
 			"maxLength": 30,
 			"defaultValue": "",
