@@ -202,6 +202,34 @@
                 "description": "Type of storage account to create for disks."
             }
         }
+         
+        "TotalCAEKey": {
+			"maxLength": 30,
+			"defaultValue": "",
+			"type": "String",
+			"metadata": {
+				"description": "TotalCAE License Key"
+			}
+		},
+
+		"downloadApplication": {
+			"defaultValue": "star-ccm+",
+			"allowedValues": [
+				"",
+				"star-ccm+",
+				"abaqus",
+				"fluent",
+				"openfoam",
+				"ls-dyna",
+                "optistruct",
+				"comsol"
+			],
+			"type": "String",
+			"metadata": {
+				"description": "Which application would you like to run"
+			}
+		}
+   
     },
     "variables": {
         "imagePublisher": "[split(parameters('image'), ':')[0]]",
