@@ -23,7 +23,7 @@ export LICENSE_KEY=$3
 export APPLICATION=$4
 export INSTANCE_COUNT=$5
 
-printenv > /tmp/ENVIRONMENT
+printenv > /root/ENVIRONMENT
 
 mkdir -p /srv/ 
 cd /srv
