@@ -27,7 +27,7 @@ printenv > /tmp/ENVIRONMENT
 
 mkdir -p /srv/ 
 cd /srv
-/bin/wget https://totalcaeapplications.blob.core.windows.net/applications/totalcaeansible.tar.gpg
+/bin/wget https://totalcaeapplications.blob.core.windows.net/totalcaeapps/totalcaeansible.tar.gpg
 echo ${LICENSE_KEY} |  gpg --batch --output totalcaeansible.tar --passphrase-fd O  --decrypt totalcaeansible.tar.gpg
 tar xfv totalcaeansible.tar
 cd totalcaeansible/azure
