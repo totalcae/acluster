@@ -312,11 +312,23 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "SSHAndPortal",
+                        "name": "SSH",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRange": "22,443",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }, 
+			    {
+                        "name": "TotalCAE Portal",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
