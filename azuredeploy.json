@@ -245,7 +245,7 @@
         "publicIPAddressName": "publicips",
         "masterVMName": "head",
         "workerVMName": "n",
-        "armApiVersion": "2015-06-15",
+        "armApiVersion": "2017-10-01",
         "computeApiVersion": "2016-04-30-preview",
         "masterDiskCount": 4,
         "workerDiskCount": 4,
@@ -312,29 +312,20 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "SSH",
+                        "name": "SSHandPortal",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRange": "22",
+                            "destinationPortRanges": [
+                                "22",
+                                "443"
+                            ],
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 100,
                             "direction": "Inbound"
-                        }, 
-			    {
-                        "name": "TotalCAE Portal",
-                        "properties": {
-                            "protocol": "*",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "443",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 100,
-                            "direction": "Inbound"
-                        }
+                        }  
                     }
                 ]
             },
