@@ -484,7 +484,7 @@
 			    "fileUris": [
 				    "https://raw.githubusercontent.com/totalcae/acluster/master/azuredeploy.sh"
 			    ],
-			    "commandToExecute": "[concat('bash azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24' )]"
+			    "commandToExecute": "[concat('bash ','azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24' )]"
   
 		    }
             }
