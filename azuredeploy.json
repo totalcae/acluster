@@ -475,19 +475,19 @@
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', variables('masterVMName'))]"
             ],
-            "properties": {	
-		    "publisher": "Microsoft.OSTCExtensions",
-		    "type": "CustomScriptForLinux",
-		    "typeHandlerVersion": "1.5",
-		    "autoUpgradeMinorVersion": true,
-		    "settings": {
-			    "fileUris": [
-				    "https://raw.githubusercontent.com/totalcae/acluster/master/azuredeploy.sh"
-			    ],
-			    "commandToExecute": "[concat('bash ','azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24' )]"
-  
-		    }
-            }
+           
+		"properties": {
+				"publisher": "Microsoft.OSTCExtensions",
+				"type": "CustomScriptForLinux",
+				"typeHandlerVersion": "1.5",
+				"autoUpgradeMinorVersion": true,
+				"settings": {
+					"fileUris": "[https://raw.githubusercontent.com/totalcae/acluster/master/azuredeploy.sh]",
+					 "commandToExecute": "[concat('bash ','azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24')]",
+					 "timestamp": 4
+				}
+	        }
+		
         },
         {
             "apiVersion": "[variables('computeApiVersion')]",
