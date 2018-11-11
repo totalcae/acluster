@@ -482,7 +482,7 @@
 				"typeHandlerVersion": "1.5",
 				"autoUpgradeMinorVersion": true,
 				"settings": {
-					"fileUris": "[https://raw.githubusercontent.com/totalcae/acluster/master/azuredeploy.sh]",
+					"fileUris": "https://raw.githubusercontent.com/totalcae/acluster/master/azuredeploy.sh",
 					 "commandToExecute": "[concat('bash ','azuredeploy.sh ', parameters('adminUserName'),' ',parameters('adminPassword'),' ',parameters('TotalCAEKey'),' ',parameters('downloadApplication'), ' ', parameters('workerNodeCount'), ' ','10.0.0.0/24')]",
 					 "timestamp": 4
 				}
