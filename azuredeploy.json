@@ -81,7 +81,7 @@
                 "Standard_L32"
             ],
             "metadata": {
-                "description": "Size of the head node. "
+                "description": "Size of the head node. Image must have OS.EnableRDMA=y for scripts to deploy do to WAAGENT limitations"
             }
         },
         "workerNodeSize": {
